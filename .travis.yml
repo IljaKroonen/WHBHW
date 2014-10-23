@@ -6,3 +6,8 @@ before_script:
  - chmod +x grailsw
 
 script: "./grailsw refresh-dependencies && ./grailsw test-app unit:"
+
+deploy:
+  provider: heroku
+  api_key: "9e1c2cb2-3564-4673-8bc9-bf51ee0e0ca2"
+  app: whbhw
