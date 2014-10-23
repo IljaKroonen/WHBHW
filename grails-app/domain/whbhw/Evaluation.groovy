@@ -6,5 +6,9 @@ class Evaluation {
     String comment
 
     static constraints = {
+        grade nullable:false
+        comment nullable:true
+        setup nullable:true
+
     }
 }

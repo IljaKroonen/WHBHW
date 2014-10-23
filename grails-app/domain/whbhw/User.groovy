@@ -10,5 +10,6 @@ class User {
     static constraints = {
         username size: 5..15, blank: false, unique: true
         password size: 5..15, blank: false
+        setup nullable:true
     }
 }
