@@ -37,3 +37,12 @@ Requires to be logged in. The user leaves a comment with an appreciation (like /
 Requires to be logged in. The user can delete one of his configurations.
 9. Edit a configuration  
 Requires to be logged in. Similar to adding, but with an existing configuration as a starting point.
+
+<h1>Important elements</h1>
+1. Home screen  
+Has a link to configurations browsing and to signup. Displays a news feed of the website.
+2. Signup screen  
+3. Configuration browsing screen  
+4. Configuration editing / adding screen
+5. Component editing / adding screen  
+6. Login element (present on all pages)
