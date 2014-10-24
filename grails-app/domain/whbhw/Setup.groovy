@@ -9,9 +9,9 @@ class Setup {
     static belongsTo = [Component]
 
     static constraints = {
-        user nullable:false
-        name nullable:false
-        description nullable:false
-        components nullable:true
+        user nullable: false
+        name nullable: false, size: 4..150, blank: false
+        description nullable: false
+        components nullable: true
     }
 }
