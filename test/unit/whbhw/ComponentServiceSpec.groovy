@@ -32,4 +32,16 @@ class ComponentServiceSpec extends Specification {
         component.getDescription() == "processeur style"
         component.getType() == "processeur"
     }
+
+    void "test méthode getByName"() {
+        given:"creation composant"
+
+        when:"un composant est créer"
+        def component = componentService.createNewComponent("i5","processeur style","processeur")
+
+        then:"le composant est trouvé"
+        component.getName() == "i5"
+        component.getDescription() == "processeur style"
+        component.getType() == "processeur"
+    }
 }

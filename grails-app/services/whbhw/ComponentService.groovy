@@ -19,7 +19,7 @@ class ComponentService {
 
     def getByName(String name) {
         def result = new ArrayList<Component>()
-        result = Component.findAllByNameLike(name)
+        result = Component.findAllByName(name)
         return result
 
     }
