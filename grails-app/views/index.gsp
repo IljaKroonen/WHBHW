@@ -102,13 +102,17 @@
 				</g:each>
 			</ul> -->
 
+            <!-- Menu side -->
+            <!-- Liste de mes configs et de leurs nombre de like -->
+
+            <g:link controller="setup">Voir toutes les configurations</g:link>
 
 
 		</div>
 
 		<div id="page-body" role="main">
-			<h1>Welcome to WHBHW</h1>
-            <!--<div id="controller-list" role="navigation">
+			<h1>Bienvenu sur WHBHW</h1>
+            <!--    <div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>
                     					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
@@ -117,7 +121,7 @@
 				</ul>
 			</div>-->
 
-
+            <!-- Content -->
 
 
 		</div>
