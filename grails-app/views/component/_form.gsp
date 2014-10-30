@@ -20,12 +20,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: componentInstance, field: 'setups', 'error')} ">
-	<label for="setups">
-		<g:message code="component.setups.label" default="Setups" />
-		
+<div class="fieldcontain ${hasErrors(bean: componentInstance, field: 'type', 'error')} required">
+	<label for="type">
+		<g:message code="component.type.label" default="Type" />
+		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="setups" from="${whbhw.Setup.list()}" multiple="multiple" optionKey="id" size="5" value="${componentInstance?.setups*.id}" class="many-to-many"/>
+	<g:textField name="type" required="" value="${componentInstance?.type}"/>
 
 </div>
 

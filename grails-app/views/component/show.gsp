@@ -41,13 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${componentInstance?.setups}">
+				<g:if test="${componentInstance?.type}">
 				<li class="fieldcontain">
-					<span id="setups-label" class="property-label"><g:message code="component.setups.label" default="Setups" /></span>
+					<span id="type-label" class="property-label"><g:message code="component.type.label" default="Type" /></span>
 					
-						<g:each in="${componentInstance.setups}" var="s">
-						<span class="property-value" aria-labelledby="setups-label"><g:link controller="setup" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${componentInstance}" field="type"/></span>
 					
 				</li>
 				</g:if>

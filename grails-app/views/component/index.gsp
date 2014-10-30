@@ -28,6 +28,8 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'component.description.label', default: 'Description')}" />
 					
+						<g:sortableColumn property="type" title="${message(code: 'component.type.label', default: 'Type')}" />
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +39,8 @@
 						<td><g:link action="show" id="${componentInstance.id}">${fieldValue(bean: componentInstance, field: "name")}</g:link></td>
 					
 						<td>${fieldValue(bean: componentInstance, field: "description")}</td>
+					
+						<td>${fieldValue(bean: componentInstance, field: "type")}</td>
 					
 					</tr>
 				</g:each>
