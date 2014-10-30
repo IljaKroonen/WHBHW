@@ -3,13 +3,11 @@ package whbhw
 class Component {
     String name
     String description
-
-    static hasMany = [setups: Setup]
+    String type
 
     static constraints = {
-
-        name nullable:false
-        description nullable:true
-        setups nullable:true
-    }
+        name nullable:false, blank:false, unique:true
+        description nullable:true, blank:false
+        type nullable:false
+        }
 }
