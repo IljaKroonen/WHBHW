@@ -1,14 +1,15 @@
 package whbhw
 
 class Evaluation {
+    User user
     Setup setup
     int grade
     String comment
 
     static constraints = {
-        grade nullable:false
-        comment nullable:true
-        setup nullable:true
-
+        user nullable: false
+        grade nullable: false, range: 1..5
+        comment nullable: true
+        setup nullable: false
     }
 }
