@@ -6,7 +6,6 @@ class Setup {
     String description
 
     static hasMany = [components: Component]
-    static belongsTo = [Component]
 
     static constraints = {
         user nullable: false
