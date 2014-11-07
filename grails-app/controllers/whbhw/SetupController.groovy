@@ -1,14 +1,15 @@
 package whbhw
 
 
-import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import org.springframework.security.access.annotation.Secured
 
 @Transactional(readOnly = true)
 class SetupController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    @Secured(['ROLE_ADMIN'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Setup.list(params), model: [setupInstanceCount: Setup.count()]
