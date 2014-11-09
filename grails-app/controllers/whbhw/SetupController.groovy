@@ -3,6 +3,8 @@ package whbhw
 
 import grails.transaction.Transactional
 import org.springframework.security.access.annotation.Secured
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContextHolder
 
 @Transactional(readOnly = true)
 class SetupController {
@@ -30,6 +32,10 @@ class SetupController {
             return
         }
 
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication()
+        setupInstance.user = User.findByUsername(auth.name)
+
+        setupInstance.validate()
         if (setupInstance.hasErrors()) {
             respond setupInstance.errors, view: 'create'
             return
