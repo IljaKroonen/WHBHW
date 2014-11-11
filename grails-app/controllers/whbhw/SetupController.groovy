@@ -107,4 +107,12 @@ class SetupController {
             '*' { render status: NOT_FOUND }
         }
     }
+
+    /*
+    def addEvaluation(Setup setupInstance, String value){
+        SetupService ss = new SetupService()
+        Evaluation eval = new Evaluation()
+        ss.addEvaluation(setupInstance, eval)
+    }
+    */
 }
