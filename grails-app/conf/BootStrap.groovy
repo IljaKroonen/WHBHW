@@ -1,4 +1,5 @@
 import whbhw.Component
+import whbhw.Evaluation
 import whbhw.Role
 import whbhw.Setup
 import whbhw.User
@@ -30,6 +31,9 @@ class BootStrap {
         testSetup.addToComponents(testComponent1)
 
         testSetup.save(flush: true)
+
+        def testEvaluation = new Evaluation(user: testUser, grade: 1, comment: "commentaire", setup: testSetup)
+        testEvaluation.save(flush: true)
 
     }
     def destroy = {

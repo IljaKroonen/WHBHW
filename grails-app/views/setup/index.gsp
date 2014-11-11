@@ -6,6 +6,23 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'setup.label', default: 'Setup')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+        <style type="text/css" media="screen">
+
+        .contentSetup{
+            text-align: center;
+        }
+        .gradePos{
+            color: green;
+            font-size: 200%;
+        }
+        .gradeNeg{
+            color: red;
+        }
+        .addEvaluation{
+            text-align: right;
+        }
+
+        </style>
 	</head>
 	<body>
 		<a href="#list-setup" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -23,51 +40,39 @@
 
             <g:each in="${setupInstanceList}" status="i" var="setupInstance">
                 <h2>Pseudo:</h2> <g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance.user, field: "username")}</g:link>
-                <h2>Setup: ${fieldValue(bean: setupInstance, field: "name")}</h2>
-                ${fieldValue(bean: setupInstance, field: "description")}
-                <h2>Components: </h2>
-                <g:each in="${setupInstance.components}" var="component">
-                    ${fieldValue(bean: component, field: "name")}<br/>
-                </g:each>
+
+                <div class="contentSetup">
+                    <h2>${fieldValue(bean: setupInstance, field: "name")}:</h2>
+                    <i>${fieldValue(bean: setupInstance, field: "description")}</i>
+                    <h2>Components: </h2>
+                    <g:each in="${setupInstance.components}" var="component">
+                        ${fieldValue(bean: component, field: "name")}<br/>
+                    </g:each>
+                    <g:actionSubmit value="Show Evaluation"/> <br/>
+                    <g:if test="${setupInstance.evaluations!=null}">
+                        <g:each in="${setupInstance.evaluations}" var="evaluation">
+
+                            <div class="gradePos">
+                                <b>${fieldValue(bean: evaluation, field: "grade")}</b>
+                            </div>
+                            ${fieldValue(bean: evaluation.user, field: "username")} :
+                            ${fieldValue(bean: evaluation, field: "comment")}<br/>
+                        </g:each>
+
+                    </g:if>
+                </div>
+                <div class="addEvaluation">
+                    <g:textArea name="myField" value="${myValue}" rows="10" cols="50" />
+                    <g:select name="comment.grade" from="${1..5}" value="${age}"
+                              noSelection="['':'Grade']"/>
+                    <g:actionSubmit value="Add Evaluation"/> <br/>
+
+                </div>
+
             </g:each>
 
-           <!-- <g:actionSubmit value="Add Evaluation" action="addEvaluation"/> <br/>-->
+           <hr/>
 
-
-            ---------------------------------------------------------------------------------------<br/>
-
-
-        <!--
-			<table>
-			<thead>
-					<tr>
-					
-						<th><g:message code="setup.user.label" default="User" /></th>
-					
-						<g:sortableColumn property="name" title="${message(code: 'setup.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="description" title="${message(code: 'setup.description.label', default: 'Description')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
-                <g:each in="${setupInstanceList}" status="i" var="setupInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance.user, field: "username")}</g:link></td>
-					
-						<td>${fieldValue(bean: setupInstance, field: "name")}</td>
-					
-						<td>${fieldValue(bean: setupInstance, field: "description")}</td>
-
-                        <g:each in="${setupInstance.components}" var="component">
-                            <td>${fieldValue(bean: component, field: "name")}</td>
-                        </g:each>
-					
-					</tr>
-				</g:each>
-				</tbody>
-			</table> -->
 			<div class="pagination">
 				<g:paginate total="${setupInstanceCount ?: 0}" />
 			</div>
