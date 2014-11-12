@@ -1,6 +1,5 @@
 package whbhw
 
-
 import grails.transaction.Transactional
 import org.springframework.security.access.annotation.Secured
 import org.springframework.security.core.Authentication
@@ -8,6 +7,8 @@ import org.springframework.security.core.context.SecurityContextHolder
 
 @Transactional(readOnly = true)
 class SetupController {
+
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -26,14 +27,14 @@ class SetupController {
     }
 
     @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def save(Setup setupInstance) {
         if (setupInstance == null) {
             notFound()
             return
         }
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication()
-        setupInstance.user = User.findByUsername(auth.name)
+        setupInstance.user = springSecurityService.currentUser
 
         setupInstance.validate()
         if (setupInstance.hasErrors()) {

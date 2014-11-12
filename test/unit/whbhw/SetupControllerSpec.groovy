@@ -1,12 +1,17 @@
 package whbhw
 
-
+import grails.plugin.springsecurity.SpringSecurityService
 import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(SetupController)
-@Mock(Setup)
+@Mock([Setup, User, SpringSecurityService])
 class SetupControllerSpec extends Specification {
+
+    def setup() {
+        controller.springSecurityService = Mock(SpringSecurityService)
+        controller.springSecurityService.getCurrentUser() >> new User()
+    }
 
     def populateValidParams(params) {
         assert params != null
@@ -38,7 +43,7 @@ class SetupControllerSpec extends Specification {
         when: "The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         def setup = new Setup()
-        setup.validate()
+        setup.name = "Setup name"
         controller.save(setup)
 
         then: "The create view is rendered again with the correct model"
