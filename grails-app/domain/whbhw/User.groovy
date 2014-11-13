@@ -6,7 +6,7 @@ class User {
 
     String username
     String password
-//    String email
+    String email
     boolean enabled
     boolean accountExpired
     boolean accountLocked
@@ -15,9 +15,9 @@ class User {
     static hasMany = [setup: Setup]
 
     static constraints = {
-        username /*size: 5..15,*/ blank: false, unique: true
-        password /*size: 5..15,*/ blank: false/*, password: true*/
-//        email email:true
+        username size: 5..15, blank: false, unique: true
+        password blank: false, password: true
+        email email:true
         setup nullable:true
     }
 

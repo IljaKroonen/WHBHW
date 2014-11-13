@@ -49,3 +49,6 @@ Has a link to configurations browsing and to signup. Displays a news feed of the
 4. Configuration editing / adding screen
 5. Component editing / adding screen  
 6. Login element (present on all pages)
+
+<h1>Build status</h1>
+![Build status](https://travis-ci.org/IljaKroonen/WHBHW.svg?branch=master)
