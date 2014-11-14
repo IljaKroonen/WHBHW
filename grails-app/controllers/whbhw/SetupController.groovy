@@ -56,6 +56,11 @@ class SetupController {
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def edit(Setup setupInstance) {
+        if (springSecurityService.currentUser != setupInstance.user) {
+            respond 'Only the owner of a setup can modify it'
+            return
+        }
+        
         respond setupInstance
     }
 
