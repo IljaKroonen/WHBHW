@@ -22,6 +22,7 @@ class SetupController {
         respond setupInstance
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {
         respond new Setup(params)
     }
@@ -53,11 +54,13 @@ class SetupController {
         }
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def edit(Setup setupInstance) {
         respond setupInstance
     }
 
     @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def update(Setup setupInstance) {
         if (setupInstance == null) {
             notFound()
@@ -81,6 +84,7 @@ class SetupController {
     }
 
     @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def delete(Setup setupInstance) {
 
         if (setupInstance == null) {
