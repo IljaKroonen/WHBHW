@@ -7,15 +7,16 @@ import spock.lang.*
 @TestFor(SetupController)
 @Mock([Setup, User, SpringSecurityService])
 class SetupControllerSpec extends Specification {
+    def user = new User()
 
     def setup() {
         controller.springSecurityService = Mock(SpringSecurityService)
-        controller.springSecurityService.getCurrentUser() >> new User()
+        controller.springSecurityService.getCurrentUser() >> user
     }
 
     def populateValidParams(params) {
         assert params != null
-        params["user"] = new User()
+        params["user"] = user
         params["name"] = 'name1'
         params["description"] = 'description1'
     }

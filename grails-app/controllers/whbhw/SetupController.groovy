@@ -3,8 +3,7 @@ package whbhw
 import grails.transaction.Transactional
 
 import org.springframework.security.access.annotation.Secured
-import org.springframework.security.core.Authentication
-import org.springframework.security.core.context.SecurityContextHolder
+import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
 class SetupController {
@@ -56,11 +55,16 @@ class SetupController {
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def edit(Setup setupInstance) {
+        if (setupInstance == null) {
+            respond setupInstance
+            return
+        }
+
         if (springSecurityService.currentUser != setupInstance.user) {
             respond 'Only the owner of a setup can modify it'
             return
         }
-        
+
         respond setupInstance
     }
 
