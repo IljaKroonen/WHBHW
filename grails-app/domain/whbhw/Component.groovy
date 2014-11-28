@@ -3,7 +3,7 @@ package whbhw
 class Component {
     String name
     String description
-    String type
+    Type type
 
     static constraints = {
         name nullable:false, blank:false, unique:true

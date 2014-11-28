@@ -33,10 +33,10 @@ class ComponentSpec extends Specification {
 
         where:
         aName  | aDescription | aType | etatAttendu
-        "aop" | "tete" | "proc" | true
-        null  | "rer" | "proc" | false
-        "aop" | "eee" | "proc" | true
-        "opt" | "eeee" | "proc" | true
+        "aop" | "tete" | Mock(Type) | true
+        null  | "rer" | Mock(Type) | false
+        "aop" | "eee" | Mock(Type) | true
+        "opt" | "eeee" | Mock(Type) | true
 
 
     }
