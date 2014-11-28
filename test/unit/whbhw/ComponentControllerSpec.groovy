@@ -6,7 +6,7 @@ import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(ComponentController)
-@Mock(Component)
+@Mock([Component])
 class ComponentControllerSpec extends Specification {
 
 
@@ -14,7 +14,7 @@ class ComponentControllerSpec extends Specification {
         assert params != null
         params["name"] = 'nom1';
         params["description"] = 'description1';
-        params["type"] = Mock(Type);
+        params["type"] = Type.ALIMENTATION;
     }
 
     void "Test the index action returns the correct model"() {
