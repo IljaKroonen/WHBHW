@@ -60,6 +60,10 @@
 					
 				</li>
 				</g:if>
+
+                <g:if test="${setupInstance.user == currentLoggedInUser }">
+                    <g:link controller="component" action="create">Create component</g:link>
+                </g:if>
 			
 			</ol>
 			<g:form url="[resource:setupInstance, action:'delete']" method="DELETE">

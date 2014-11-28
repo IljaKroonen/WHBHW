@@ -18,7 +18,11 @@ class SetupController {
     }
 
     def show(Setup setupInstance) {
-        respond setupInstance
+        if (setupInstance == null) {
+            notFound()
+            return
+        }
+        [setupInstance: setupInstance, currentLoggedInUser: springSecurityService.currentUser]
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])

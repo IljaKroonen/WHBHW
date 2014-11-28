@@ -74,10 +74,10 @@ class SetupControllerSpec extends Specification {
         when: "A domain instance is passed to the show action"
         populateValidParams(params)
         def setup = new Setup(params)
-        controller.show(setup)
+        def ret = controller.show(setup)
 
         then: "A model is populated containing the domain instance"
-        model.setupInstance == setup
+        ret['setupInstance'] == setup
     }
 
     void "Test that the edit action returns the correct model"() {
