@@ -32,10 +32,10 @@ class BootStrap {
         testSetup.addToComponents(testComponent)
         testSetup.addToComponents(testComponent1)
 
-        testSetup.save(flush: true)
+        //testSetup.save(flush: true)
 
-        def testEvaluation = new Evaluation(user: testUser, grade: 1, comment: "commentaire", setup: testSetup)
-        testEvaluation.save(flush: true)
+        //def testEvaluation = new Evaluation(user: testUser, grade: 1, comment: "commentaire", setup: testSetup)
+        //testEvaluation.save(flush: true)
 
     }
     def destroy = {
