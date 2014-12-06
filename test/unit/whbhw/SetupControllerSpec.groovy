@@ -5,7 +5,7 @@ import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(SetupController)
-@Mock([Setup, User, SpringSecurityService])
+@Mock([Setup, User, SpringSecurityService, Component])
 class SetupControllerSpec extends Specification {
     def user = new User()
 
