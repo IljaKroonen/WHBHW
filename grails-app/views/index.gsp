@@ -106,6 +106,7 @@
             <!-- Liste de mes configs et de leurs nombre de like -->
 
             <g:link controller="setup">Voir toutes les configurations</g:link>
+            <g:link controller="component">Voir les composants</g:link>
 
 
 		</div>

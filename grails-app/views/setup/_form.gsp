@@ -15,5 +15,4 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textArea name="description" required="" value="${setupInstance?.description}"/>
-
 </div>

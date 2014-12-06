@@ -25,7 +25,7 @@
 		<g:message code="component.type.label" default="Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="type" required="" value="${componentInstance?.type}"/>
+    <g:select name="type" from="${whbhw.Type?.values()}" keys="${whbhw.Type.values()*.name()}" required="" value="${componentInstance?.type?.name()}" noSelection="['':'Choisissez le type']" />
 
 </div>
 
