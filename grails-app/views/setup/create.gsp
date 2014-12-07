@@ -29,24 +29,6 @@
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
-                Carte mère:<g:select name="carteMere" from="${whbhw.Component.findAllByType('CARTE_MERE').name}" />
-                <br />
-                Processeur:<g:select name="processeur" from="${whbhw.Component.findAllByType('PROCESSEUR').name}" keys="${whbhw.Component.findAllByType('PROCESSEUR').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
-                Carte graphique:<g:select name="carteGraphique" from="${whbhw.Component.findAllByType('CARTE_GRAPHIQUE').name}" keys="${whbhw.Component.findAllByType('CARTE_GRAPHIQUE').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
-                Ventilateur:<g:select name="ventilateur" from="${whbhw.Component.findAllByType('VENTILATEUR').name}" keys="${whbhw.Component.findAllByType('VENTILATEUR').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
-                RAM:<g:select name="ram" from="${whbhw.Component.findAllByType('RAM').name}" keys="${whbhw.Component.findAllByType('RAM').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
-                Boitier:<g:select name="boitier" from="${whbhw.Component.findAllByType('BOITIER').name}" keys="${whbhw.Component.findAllByType('BOITIER').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
-                Alimentation:<g:select name="alimentation" from="${whbhw.Component.findAllByType('ALIMENTATION').name}" keys="${whbhw.Component.findAllByType('ALIMENTATION').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
-                Disque dur:<g:select name="disqueDur" from="${whbhw.Component.findAllByType('DISQUE_DUR').name}" keys="${whbhw.Component.findAllByType('DISQUE_DUR').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
-                SSD:<g:select name="ssd" from="${whbhw.Component.findAllByType('SSD').name}" keys="${whbhw.Component.findAllByType('SSD').name}" required="" value="${setupInstance?.components?.name()}" />
-                <br />
 				<fieldset class="buttons">
 					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
