@@ -15,12 +15,6 @@
             color: green;
             font-size: 200%;
         }
-        .gradeNeg{
-            color: red;
-        }
-        .addEvaluation{
-            text-align: right;
-        }
 
         </style>
 	</head>
@@ -30,8 +24,24 @@
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+
 			</ul>
 		</div>
+        <div class="search">
+            <fieldset class="form">
+                <g:form action="index" method="GET">
+                        <label for="query">Search :</label>
+                        <g:textField name="query" value="${params.query}"/>
+                        <label for="checkBoxSetup">Setup :</label>
+                        <g:checkBox name="checkBoxSetup" value="${false}" />
+                        <label for="checkBoxPseudo">Pseudo :</label>
+                        <g:checkBox name="checkBoxPseudo" value="${false}" />
+                        <label for="checkBoxComponent">Component :</label>
+                        <g:checkBox name="checkBoxComponent" value="${false}" />
+                </g:form>
+            </fieldset>
+        </div>
+
 		<div id="list-setup" class="content scaffold-list" role="main">
 			<!--<h1><g:message code="default.list.label" args="[entityName]" /></h1> -->
 			<g:if test="${flash.message}">
@@ -60,13 +70,6 @@
                         </g:each>
 
                     </g:if>
-                </div>
-                <div class="addEvaluation">
-                    <g:textArea name="myField" value="${myValue}" rows="10" cols="50" />
-                    <g:select name="comment.grade" from="${1..5}" value="${age}"
-                              noSelection="['':'Grade']"/>
-                    <g:actionSubmit value="Add Evaluation"/> <br/>
-
                 </div>
 
             </g:each>
