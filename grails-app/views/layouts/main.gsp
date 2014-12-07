@@ -20,8 +20,8 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner">
-            <img src="${resource(dir: 'images', file: 'logo.png')}" width="150" height="150" width="100" height="100"/>
-            <h>Who Has the Biggest HardWare</h>
+            <a href="${createLink(uri: '/')}"><img src="${resource(dir: 'images', file: 'logo.png')}" width="150" height="150" width="100" height="100"/></a>
+            <h style="font-family: fantasy; font-size: 50px;">Who Has the Biggest HardWare !?</h>
         </div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>

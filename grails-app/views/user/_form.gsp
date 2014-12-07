@@ -20,7 +20,7 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'setup', 'error')} ">
+<!--<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'setup', 'error')} ">
 	<label for="setup">
 		<g:message code="user.setup.label" default="Setup" />
 		
@@ -36,7 +36,7 @@
 </ul>
 
 
-</div>
+</div>-->
 
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'email', 'error')} required">
 	<label for="email">
