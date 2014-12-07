@@ -100,6 +100,20 @@ class SetupController {
             return
         }
 
+        ArrayList<Component> comp = new ArrayList<Component>()
+        comp.add(Component.findByName(params.carteMere))
+        comp.add(Component.findByName(params.processeur))
+        comp.add(Component.findByName(params.carteGraphique))
+        comp.add(Component.findByName(params.ram))
+        comp.add(Component.findByName(params.ssd))
+        comp.add(Component.findByName(params.disqueDur))
+        comp.add(Component.findByName(params.boitier))
+        comp.add(Component.findByName(params.alimentation))
+        comp.add(Component.findByName(params.ventilateur))
+
+        setupInstance.components = new ArrayList<Component>()
+        setupInstance.components.addAll(comp)
+
         setupInstance.save flush: true
 
         request.withFormat {

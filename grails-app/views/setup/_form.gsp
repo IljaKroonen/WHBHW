@@ -19,45 +19,45 @@
 
 <div class="fieldcontain required">
     <label for="carteMere">Carte mère</label>
-    <g:select name="carteMere" from="${whbhw.Component.findAllByType('CARTE_MERE').name}" />
+    <g:select name="carteMere" from="${whbhw.Component.findAllByType('CARTE_MERE').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.CARTE_MERE})?.name}"/>
 </div>
 
 <div class="fieldcontain required">
     <label for="processeur">Processeur</label>
-    <g:select name="processeur" from="${whbhw.Component.findAllByType('PROCESSEUR').name}" keys="${whbhw.Component.findAllByType('PROCESSEUR').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="processeur" from="${whbhw.Component.findAllByType('PROCESSEUR').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.PROCESSEUR})?.name}" />
 </div>
 
 <div class="fieldcontain required">
     <label for="carteGraphique">Carte graphique</label>
-    <g:select name="carteGraphique" from="${whbhw.Component.findAllByType('CARTE_GRAPHIQUE').name}" keys="${whbhw.Component.findAllByType('CARTE_GRAPHIQUE').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="carteGraphique" from="${whbhw.Component.findAllByType('CARTE_GRAPHIQUE').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.CARTE_GRAPHIQUE})?.name}" />
 </div>
 
 <div class="fieldcontain required">
     <label for="ventilateur">Ventilateur</label>
-    <g:select name="ventilateur" from="${whbhw.Component.findAllByType('VENTILATEUR').name}" keys="${whbhw.Component.findAllByType('VENTILATEUR').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="ventilateur" from="${whbhw.Component.findAllByType('VENTILATEUR').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.VENTILATEUR})?.name}"/>
 </div>
 
 <div class="fieldcontain required">
     <label for="ram">Mémoire vive</label>
-    <g:select name="ram" from="${whbhw.Component.findAllByType('RAM').name}" keys="${whbhw.Component.findAllByType('RAM').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="ram" from="${whbhw.Component.findAllByType('RAM').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.RAM})?.name}"/>
 </div>
 
 <div class="fieldcontain required">
     <label for="boitier">Boîtier</label>
-    <g:select name="boitier" from="${whbhw.Component.findAllByType('BOITIER').name}" keys="${whbhw.Component.findAllByType('BOITIER').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="boitier" from="${whbhw.Component.findAllByType('BOITIER').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.BOITIER})?.name}"/>
 </div>
 
 <div class="fieldcontain required">
     <label for="alimentation">Alimentation</label>
-    <g:select name="alimentation" from="${whbhw.Component.findAllByType('ALIMENTATION').name}" keys="${whbhw.Component.findAllByType('ALIMENTATION').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="alimentation" from="${whbhw.Component.findAllByType('ALIMENTATION').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.ALIMENTATION})?.name}"/>
 </div>
 
 <div class="fieldcontain required">
     <label for="disqueDur">Disque dur</label>
-    <g:select name="disqueDur" from="${whbhw.Component.findAllByType('DISQUE_DUR').name}" keys="${whbhw.Component.findAllByType('DISQUE_DUR').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="disqueDur" from="${whbhw.Component.findAllByType('DISQUE_DUR').name}"  value="${setupInstance.components.find({e -> e.type == whbhw.Type.DISQUE_DUR})?.name}"/>
 </div>
 
 <div class="fieldcontain required">
     <label for="ssd">SSD</label>
-    <g:select name="ssd" from="${whbhw.Component.findAllByType('SSD').name}" keys="${whbhw.Component.findAllByType('SSD').name}" required="" value="${setupInstance?.components?.name()}" />
+    <g:select name="ssd" from="${whbhw.Component.findAllByType('SSD').name}" value="${setupInstance.components.find({e -> e.type == whbhw.Type.SSD})?.name}"/>
 </div>
