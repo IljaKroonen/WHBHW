@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="user-label" class="property-label"><g:message code="setup.user.label" default="User" /></span>
 					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${setupInstance?.user?.id}">${setupInstance?.user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${setupInstance?.user?.id}">${setupInstance?.user?.username}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -53,18 +53,14 @@
 				<g:if test="${setupInstance?.components}">
 				<li class="fieldcontain">
 					<span id="components-label" class="property-label"><g:message code="setup.components.label" default="Components" /></span>
-					
-						<g:each in="${setupInstance.components}" var="c">
-						<span class="property-value" aria-labelledby="components-label"><g:link controller="component" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+
+						<g:each in="${setupInstance.components.sort{it.id}}" var="c">
+						<span class="property-value" aria-labelledby="components-label"><g:link controller="component" action="show" id="${c.id}">${c?.name}</g:link></span>
 						</g:each>
 					
 				</li>
 				</g:if>
 
-                <g:if test="${setupInstance.user == currentLoggedInUser }">
-                    <g:link controller="component" action="create">Create component</g:link>
-                </g:if>
-			
 			</ol>
 			<g:form url="[resource:setupInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
