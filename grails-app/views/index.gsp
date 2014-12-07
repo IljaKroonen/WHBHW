@@ -80,6 +80,7 @@
 			}
 		</style>
 	</head>
+
 	<body>
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
@@ -105,9 +106,17 @@
             <!-- Menu side -->
             <!-- Liste de mes configs et de leurs nombre de like -->
 
-            <g:link controller="setup">Voir toutes les configurations</g:link>
-            <g:link controller="component">Voir les composants</g:link>
-
+            <ul>
+                <li><g:link controller="setup">Voir toutes les configurations</g:link></li>
+                <li><g:link controller="component">Voir les composants</g:link></li>
+                <sec:ifNotLoggedIn>
+                    <li><g:link uri="/login/auth/">S'indentifier</g:link></li>
+                    <li><g:link uri="/user/create/">S'inscrire</g:link></li>
+                </sec:ifNotLoggedIn>
+                <sec:ifLoggedIn>
+                    <li><g:link controller="logout">Se déconnecter</g:link></li>
+                </sec:ifLoggedIn>
+            </ul>
 
 		</div>
 
@@ -116,7 +125,7 @@
             <!--    <div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>
-                    					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
 						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
 					</g:each>
 				</ul>
