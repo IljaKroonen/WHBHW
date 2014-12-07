@@ -39,13 +39,14 @@
 			</g:if>
 
             <g:each in="${setupInstanceList}" status="i" var="setupInstance">
-                <h2>Pseudo:</h2> <g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance.user, field: "username")}</g:link>
 
                 <div class="contentSetup">
-                    <h2>${fieldValue(bean: setupInstance, field: "name")}:</h2>
+                    <h2>${fieldValue(bean: setupInstance, field: "name")}</h2>
+                    <h4>Pseudo:</h4> <g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance.user, field: "username")}</g:link>
+                    <h4>Description</h4>
                     <i>${fieldValue(bean: setupInstance, field: "description")}</i>
-                    <h2>Components: </h2>
-                    <g:each in="${setupInstance.components}" var="component">
+                    <h4>Composants </h4>
+                    <g:each in="${setupInstance.components.sort{it.id}}" var="component">
                         ${fieldValue(bean: component, field: "name")}<br/>
                     </g:each>
                     <g:actionSubmit value="Show Evaluation"/> <br/>
