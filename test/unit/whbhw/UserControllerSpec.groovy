@@ -10,8 +10,6 @@ import spock.lang.*
 @Mock(User)
 class UserControllerSpec extends Specification {
 
-    MetaClass   meta
-
     def populateValidParams(params) {
         assert params != null
         params["username"] = "userTest1"

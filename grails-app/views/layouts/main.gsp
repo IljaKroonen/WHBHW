@@ -23,6 +23,9 @@
             <a href="${createLink(uri: '/')}"><img src="${resource(dir: 'images', file: 'logo.png')}" width="150" height="150" width="100" height="100"/></a>
             <h style="font-family: fantasy; font-size: 50px;">Who Has the Biggest HardWare !?</h>
         </div>
+        <sec:ifLoggedIn>
+            <div><p style="text-align: center"><g:userInfo username="${sec.username()}"></g:userInfo></p></div>
+        </sec:ifLoggedIn>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
         <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/>
