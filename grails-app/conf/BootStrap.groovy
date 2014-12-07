@@ -24,32 +24,32 @@ class BootStrap {
         assert UserRole.count() == 1
 
         /*Rajout*/
-        def carteMereComponent = new Component(name:"carteMere",description:"descriptionCarteMere", type: Type.CARTE_MERE)
-        def carteMereComponent2 = new Component(name:"carteMere2",description:"descriptionCarteMere2", type: Type.CARTE_MERE)
+        def carteMereComponent = new Component(name:"Asrock Z87-Pro4",description:"Carte mère socket 1050 compatible Haswell", type: Type.CARTE_MERE)
+        def carteMereComponent2 = new Component(name:"Asus Z87-A",description:"Carte mère socket 1050 compatible Haswell", type: Type.CARTE_MERE)
 
-        def processeurComponent = new Component(name:"processeur",description:"descriptionProcesseur", type: Type.PROCESSEUR)
-        def processeurComponent2 = new Component(name:"processeur2",description:"descriptionProcesseur2", type: Type.PROCESSEUR)
+        def processeurComponent = new Component(name:"i5 2500K",description:"Socket 1150, 95W, 32nm, 3.3 Ghz", type: Type.PROCESSEUR)
+        def processeurComponent2 = new Component(name:"i7 4790K",description:"Socket 1150, 88W, 22nm, 4 Ghz", type: Type.PROCESSEUR)
 
-        def carteGraphiqueComponent = new Component(name:"carteGraphique",description:"descriptionCarteGraphique", type: Type.CARTE_GRAPHIQUE)
-        def carteGraphiqueComponent2 = new Component(name:"carteGraphique2",description:"descriptionCarteGraphique2", type: Type.CARTE_GRAPHIQUE)
+        def carteGraphiqueComponent = new Component(name:"GTX 780",description:"3072 Mo Dual DVI/HDMI/DisplayPort - PCI Express", type: Type.CARTE_GRAPHIQUE)
+        def carteGraphiqueComponent2 = new Component(name:"GTX 660",description:"2048 Mo Dual DVI/HDMI/DisplayPort - PCI Express", type: Type.CARTE_GRAPHIQUE)
 
-        def ventilateurComponent = new Component(name:"ventilateur",description:"descriptionVentilateur", type: Type.VENTILATEUR)
-        def ventilateurComponent2 = new Component(name:"ventilateur2",description:"descriptionVentilateur2", type: Type.VENTILATEUR)
+        def ventilateurComponent = new Component(name:"Be Quiet DARK ROCK PRO 3",description:"7 caloducs - 2 ventilateurs SilentWings - 26.1 dB (A) max - compatible avec l'ensemble les plateformes Intel et AMD actuelles", type: Type.VENTILATEUR)
+        def ventilateurComponent2 = new Component(name:"COOLER MASTER Hyper 212 Evo",description:"Cuivre et aluminium - 4 caloducs à contact direct - 9-31 dBA - Socket INTEL LGA 1366 / 1156 / 1155 / 775 et AMD FM1 / AM3+ / AM3 / AM2+ / AM2", type: Type.VENTILATEUR)
 
-        def disqueDurComponent = new Component(name:"disqueDur",description:"descriptionDisqueDur", type: Type.DISQUE_DUR)
-        def disqueDurComponent2 = new Component(name:"disqueDur2",description:"descriptionDisqueDur2", type: Type.DISQUE_DUR)
+        def disqueDurComponent = new Component(name:"WESTERN DIGITAL Caviar Green - 1 To",description:"SATA 6Go/s - 64 Mo Cache WD10EZRX - version OEM (sans boîte/ni manuel)", type: Type.DISQUE_DUR)
+        def disqueDurComponent2 = new Component(name:"WESTERN DIGITAL Caviar Red - 1 To",description:"SATA III 6Gb/s - 64 Mo cache - disque dur spécial pour NAS - version OEM (sans boîte/ni manuel)", type: Type.DISQUE_DUR)
 
-        def ssdComponent = new Component(name:"ssd",description:"descriptionSsd", type: Type.SSD)
-        def ssdComponent2 = new Component(name:"ssd2",description:"descriptionSsd2", type: Type.SSD)
+        def ssdComponent = new Component(name:"SAMSUNG SSD Serie 840 EVO - 2.5 pouces - 250 Go - SATA III",description:"Controleur Samsung 3-Core MCX - Support du TRIM/SMART", type: Type.SSD)
+        def ssdComponent2 = new Component(name:"SSD KINGSTON SSD V300 - 120 Go - SATA III",description:"2.5 pouces - MLC - contrôleur LSI SandForce", type: Type.SSD)
 
-        def boitierComponent = new Component(name:"boitier",description:"descriptionBoitier", type: Type.BOITIER)
-        def boitierComponent2 = new Component(name:"boitier2",description:"descriptionBoitier2", type: Type.BOITIER)
+        def boitierComponent = new Component(name:"COOLER MASTER Silencio 550 Noir",description:"Moyen tour - ATX / Micro-ATX - Sans alimentation - Noir", type: Type.BOITIER)
+        def boitierComponent2 = new Component(name:"COOLER MASTER HAF-X",description:"Grand tour - XL-ATX / E-ATX / ATX / Micro ATX - Sans alimentation - USB 3.0 - 4 ventilateurs inclus - Noir", type: Type.BOITIER)
 
-        def alimentationComponent = new Component(name:"alimentation",description:"descriptionAlimentation", type: Type.ALIMENTATION)
-        def alimentationComponent2 = new Component(name:"alimentation2",description:"descriptionAlimentation2", type: Type.ALIMENTATION)
+        def alimentationComponent = new Component(name:"CORSAIR CX Bronze - 600 W",description:"Certification 80 Plus Bronze - 600W - Garantie 3 ans", type: Type.ALIMENTATION)
+        def alimentationComponent2 = new Component(name:"COOLER MASTER GM 750 Modulaire",description:"750W - Certification 80Plus Bronze - 4 Ports PCI-E - 8 ports SATA", type: Type.ALIMENTATION)
 
-        def ramComponent = new Component(name:"ram",description:"descriptionRam", type: Type.RAM)
-        def ramComponent2 = new Component(name:"ram2",description:"descriptionRam2", type: Type.RAM)
+        def ramComponent = new Component(name:"G.Skill Ripjaws X Series - 8Go ( 2x 4 Go ) PC12800 1600 Mhz CL9",description:"F3-12800CL9D-8GBXL Dual Channel - CL 9-9-9-24 - Compatible Sandybridge - 1.50V", type: Type.RAM)
+        def ramComponent2 = new Component(name:"Crucial Ballistix Sport 4Go PC12800 1600Mhz CL9 1.35V",description:"BLS4G3N169ES4CEU - SODIMM 204pin", type: Type.RAM)
 
         carteMereComponent.save(flush: true)
         carteMereComponent2.save(flush: true)
