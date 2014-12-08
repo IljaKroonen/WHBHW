@@ -70,22 +70,17 @@ class BootStrap {
         ramComponent.save(flush: true)
         ramComponent2.save(flush: true)
 
+        def testSetup = new Setup(user: testUser, name: "PC compression",description: "Ordinateur orienté compression vidéo")
+        testSetup.addToComponents(carteMereComponent2)
+        testSetup.addToComponents(carteGraphiqueComponent2)
+        testSetup.addToComponents(processeurComponent)
+        testSetup.addToComponents(ventilateurComponent2)
+        testSetup.addToComponents(disqueDurComponent)
+        testSetup.addToComponents(boitierComponent)
+        testSetup.addToComponents(alimentationComponent)
+        testSetup.addToComponents(ramComponent2)
 
-
-        def testComponent = new Component(name:"Component", description: "desc", type: "carte mere")
-        def testComponent1 = new Component(name:"Component1", description: "desc1", type: "carte mere1")
-        testComponent.save(flush: true)
-        testComponent1.save(flush: true)
-
-        def testSetup = new Setup(user: testUser, name: "setup",description: "desc setup")
-        testSetup.addToComponents(testComponent)
-        testSetup.addToComponents(testComponent1)
-
-        //testSetup.save(flush: true)
-
-        //def testEvaluation = new Evaluation(user: testUser, grade: 1, comment: "commentaire", setup: testSetup)
-        //testEvaluation.save(flush: true)
-
+        testSetup.save(flush: true)
     }
     def destroy = {
     }
