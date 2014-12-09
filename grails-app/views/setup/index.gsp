@@ -58,17 +58,32 @@
                             </div>
                             ${fieldValue(bean: evaluation.user, field: "username")} :
                             ${fieldValue(bean: evaluation, field: "comment")}<br/>
+                            <g:form url="[resource:evaluation, action:'delete']" method="DELETE">
+                                <fieldset class="buttons">
+
+                                    <g:actionSubmit class="delete btn btn-danger glyphicon-trash" style="width: 150px; float: right; margin-right: 20px;"
+                                                    action="delete" value="${message(code: 'Effacer', default: 'Effacer')}"
+                                                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                    <g:link class="edit btn btn-info" style="width: 150px; float: right; margin-right: 20px;" action="edit"   resource="${evaluation}">
+                                        <span class="glyphicon glyphicon-pencil" style="margin-right: 10px;" />      Editer</g:link>
+                                </fieldset>
+                            </g:form>
                         </g:each>
 
                     </g:if>
                 </div>
-                <div class="addEvaluation">
-                    <g:textArea name="myField" value="${myValue}" rows="10" cols="50" />
-                    <g:select name="comment.grade" from="${1..5}" value="${age}"
-                              noSelection="['':'Grade']"/>
-                    <g:actionSubmit value="Add Evaluation"/> <br/>
-
-                </div>
+                <g:if test="${!(setupInstance.getEvaluations()*.getUser()).contains(applicationContext.springSecurityService.getCurrentUser())}">
+                <g:form action="save" controller="Evaluation" >
+                    <div class="addEvaluation">
+                        <input type="hidden" name="setup.id" value="${setupInstance.id}">
+                        <input type="hidden" name="user.id" value="${applicationContext.springSecurityService.getCurrentUser().id}">
+                        <input id="comment" name="comment" maxlength="1600" type="text" class="form-control" id="texte" placeholder="">
+                        <g:select name="grade" from="${1..5}" value="${grade}"
+                                  noSelection="['':'Grade']"/>
+                        <g:submitButton type="submit" name="save" class="save" value="Add Evaluation"/> <br/>
+                    </div>
+                </g:form>
+                </g:if>
 
             </g:each>
 

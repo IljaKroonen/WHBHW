@@ -36,13 +36,8 @@ class EvaluationController {
 
         evaluationInstance.save flush: true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'evaluation.label', default: 'Evaluation'), evaluationInstance.id])
-                redirect evaluationInstance
-            }
-            '*' { respond evaluationInstance, [status: CREATED] }
-        }
+        redirect(controller: "Setup", action: "index", id: evaluationInstance.setup.id)
+
     }
 
     def edit(Evaluation evaluationInstance) {
@@ -63,13 +58,7 @@ class EvaluationController {
 
         evaluationInstance.save flush: true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Evaluation.label', default: 'Evaluation'), evaluationInstance.id])
-                redirect evaluationInstance
-            }
-            '*' { respond evaluationInstance, [status: OK] }
-        }
+        redirect(controller: "Setup", action: "show", id: evaluationInstance.setup.id)
     }
 
     @Transactional
@@ -82,13 +71,7 @@ class EvaluationController {
 
         evaluationInstance.delete flush: true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Evaluation.label', default: 'Evaluation'), evaluationInstance.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NO_CONTENT }
-        }
+        redirect(controller: "Setup", action: "show", id: evaluationInstance.setup.id)
     }
 
     protected void notFound() {

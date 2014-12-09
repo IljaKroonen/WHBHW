@@ -22,7 +22,7 @@ class SetupController {
             notFound()
             return
         }
-        [setupInstance: setupInstance, currentLoggedInUser: springSecurityService.currentUser]
+        [setupInstance: setupInstance, currentLoggedInUser: springSecurityService.getCurrentUser()]
     }
 
     @Secured(['ROLE_ADMIN', 'ROLE_USER'])
@@ -38,7 +38,7 @@ class SetupController {
             return
         }
 
-        setupInstance.user = springSecurityService.currentUser
+        setupInstance.user = springSecurityService.getCurrentUser()
 
         setupInstance.validate()
         if (setupInstance.hasErrors()) {
