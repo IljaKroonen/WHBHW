@@ -39,7 +39,6 @@ class SetupController {
         }
 
         setupInstance.user = springSecurityService.getCurrentUser()
-
         setupInstance.validate()
         if (setupInstance.hasErrors()) {
             respond setupInstance.errors, view: 'create'
@@ -79,7 +78,7 @@ class SetupController {
             return
         }
 
-        if (springSecurityService.currentUser != setupInstance.user) {
+        if (springSecurityService.getGetCurrentUser() != setupInstance.user) {
             respond 'Only the owner of a setup can modify it'
             return
         }

@@ -58,7 +58,7 @@ class EvaluationController {
 
         evaluationInstance.save flush: true
 
-        redirect(controller: "Setup", action: "show", id: evaluationInstance.setup.id)
+        redirect(controller: "Setup", action: "index", id: evaluationInstance.setup.id)
     }
 
     @Transactional
@@ -71,7 +71,7 @@ class EvaluationController {
 
         evaluationInstance.delete flush: true
 
-        redirect(controller: "Setup", action: "show", id: evaluationInstance.setup.id)
+        redirect(controller: "Setup", action: "index", id: evaluationInstance.setup.id)
     }
 
     protected void notFound() {

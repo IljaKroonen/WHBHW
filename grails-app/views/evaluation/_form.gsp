@@ -21,11 +21,8 @@
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: evaluationInstance, field: 'setup', 'error')} ">
-	<label for="setup">
-		<g:message code="evaluation.setup.label" default="Setup" />
-		
-	</label>
-	<g:select id="setup" name="setup.id" from="${whbhw.Setup.list()}" optionKey="id" value="${evaluationInstance?.setup?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+    <g:hiddenField id="setup" name="setup.id" from="${whbhw.Setup.list()}" optionKey="id" value="${evaluationInstance?.setup?.id}" class="many-to-one" noSelection="['null': '']"/>
 
 </div>
 
