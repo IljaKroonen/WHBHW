@@ -78,7 +78,7 @@ class SetupController {
             return
         }
 
-        if (springSecurityService.getGetCurrentUser() != setupInstance.user) {
+        if (springSecurityService.currentUser != setupInstance.user) {
             respond 'Only the owner of a setup can modify it'
             return
         }
