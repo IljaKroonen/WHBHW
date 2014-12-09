@@ -41,8 +41,8 @@
             <g:each in="${setupInstanceList}" status="i" var="setupInstance">
 
                 <div class="contentSetup">
-                    <h2>${fieldValue(bean: setupInstance, field: "name")}</h2>
-                    <h4>Pseudo:</h4> <g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance.user, field: "username")}</g:link>
+                    <h2><g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance, field: "name")}</g:link></h2>
+                    <h4>Propriétaire</h4>${fieldValue(bean: setupInstance.user, field: "username")}
                     <h4>Description</h4>
                     <i>${fieldValue(bean: setupInstance, field: "description")}</i>
                     <h4>Composants </h4>
@@ -67,7 +67,6 @@
                     <g:select name="comment.grade" from="${1..5}" value="${age}"
                               noSelection="['':'Grade']"/>
                     <g:actionSubmit value="Add Evaluation"/> <br/>
-
                 </div>
 
             </g:each>
