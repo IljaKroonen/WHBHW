@@ -49,7 +49,6 @@
                     <g:each in="${setupInstance.components.sort{it.id}}" var="component">
                         ${fieldValue(bean: component, field: "name")}<br/>
                     </g:each>
-                    <g:actionSubmit value="Show Evaluation"/> <br/>
                     <g:if test="${setupInstance.evaluations!=null}">
                         <g:each in="${setupInstance.evaluations}" var="evaluation">
 
@@ -74,7 +73,7 @@
                     </g:if>
                 </div>
 
-                <g:if test="${!(setupInstance.getEvaluations()*.getUser()).contains(applicationContext.springSecurityService.getCurrentUser())}">
+                <g:if test="${(!(setupInstance.getEvaluations()*.getUser()).contains(applicationContext.springSecurityService.getCurrentUser()) && applicationContext.springSecurityService.getCurrentUser()!=null)}">
                 <g:form action="save" controller="Evaluation" >
                     <div class="addEvaluation">
                         <input type="hidden" name="setup.id" value="${setupInstance.id}">
