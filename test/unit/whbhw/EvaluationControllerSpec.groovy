@@ -54,8 +54,7 @@ class EvaluationControllerSpec extends Specification {
         controller.save(evaluation)
 
         then: "A redirect is issued to the show action"
-        response.redirectedUrl == '/evaluation/show/1'
-        controller.flash.message != null
+        response.redirectedUrl == '/setup/index'
         Evaluation.count() == 1
     }
 
@@ -118,7 +117,7 @@ class EvaluationControllerSpec extends Specification {
         controller.update(evaluation)
 
         then: "A redirect is issues to the show action"
-        response.redirectedUrl == "/evaluation/show/$evaluation.id"
+        response.redirectedUrl == "/setup/index"
         flash.message != null
     }
 
@@ -144,7 +143,7 @@ class EvaluationControllerSpec extends Specification {
 
         then: "The instance is deleted"
         Evaluation.count() == 0
-        response.redirectedUrl == '/evaluation/index'
+        response.redirectedUrl == '/setup/index'
         flash.message != null
     }
 }

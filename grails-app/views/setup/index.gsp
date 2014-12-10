@@ -49,16 +49,16 @@
 			</g:if>
 
             <g:each in="${setupInstanceList}" status="i" var="setupInstance">
-                <h2>Pseudo:</h2> <g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance.user, field: "username")}</g:link>
 
                 <div class="contentSetup">
-                    <h2>${fieldValue(bean: setupInstance, field: "name")}:</h2>
+                    <h2><g:link action="show" id="${setupInstance.id}">${fieldValue(bean: setupInstance, field: "name")}</g:link></h2>
+                    <h4>Propriétaire</h4>${fieldValue(bean: setupInstance.user, field: "username")}
+                    <h4>Description</h4>
                     <i>${fieldValue(bean: setupInstance, field: "description")}</i>
-                    <h2>Components: </h2>
-                    <g:each in="${setupInstance.components}" var="component">
+                    <h4>Composants </h4>
+                    <g:each in="${setupInstance.components.sort{it.id}}" var="component">
                         ${fieldValue(bean: component, field: "name")}<br/>
                     </g:each>
-                    <g:actionSubmit value="Show Evaluation"/> <br/>
                     <g:if test="${setupInstance.evaluations!=null}">
                         <g:each in="${setupInstance.evaluations}" var="evaluation">
 
@@ -67,11 +67,34 @@
                             </div>
                             ${fieldValue(bean: evaluation.user, field: "username")} :
                             ${fieldValue(bean: evaluation, field: "comment")}<br/>
+                            <g:if test="${(evaluation.getUser()).equals(applicationContext.springSecurityService.getCurrentUser())}">
+                                <g:form url="[resource:evaluation, action:'delete']" method="DELETE">
+                                <fieldset class="buttons">
+                                    <g:actionSubmit class="delete btn btn-danger glyphicon-trash" style="width: 150px; float: right; margin-right: 20px;"
+                                                    action="delete" value="${message(code: 'Effacer', default: 'Effacer')}"
+                                                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                    <g:link class="edit btn btn-info" style="width: 150px; float: right; margin-right: 20px;" action="edit"   resource="${evaluation}">
+                                        <span class="glyphicon glyphicon-pencil" style="margin-right: 10px;" />      Editer</g:link>
+                                </fieldset>
+                            </g:form>
+                            </g:if>
                         </g:each>
 
                     </g:if>
                 </div>
 
+                <g:if test="${(!(setupInstance.getEvaluations()*.getUser()).contains(applicationContext.springSecurityService.getCurrentUser()) && applicationContext.springSecurityService.getCurrentUser()!=null)}">
+                <g:form action="save" controller="Evaluation" >
+                    <div class="addEvaluation">
+                        <input type="hidden" name="setup.id" value="${setupInstance.id}">
+                        <input type="hidden" name="user.id" value="${applicationContext.springSecurityService.getCurrentUser().id}">
+                        <input id="comment" name="comment" maxlength="1600" type="text" class="form-control" id="texte" placeholder="">
+                        <g:select name="grade" from="${1..5}" value="${grade}"
+                                  noSelection="['':'Grade']"/>
+                        <g:submitButton type="submit" name="save" class="save" value="Add Evaluation"/> <br/>
+                    </div>
+                </g:form>
+                </g:if>
             </g:each>
 
            <hr/>
