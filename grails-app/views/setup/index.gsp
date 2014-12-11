@@ -27,6 +27,7 @@
 
 			</ul>
 		</div>
+
         <div class="search">
             <fieldset class="form">
                 <g:form action="index" method="GET">
@@ -65,25 +66,25 @@
                             <div class="gradePos">
                                 <b>${fieldValue(bean: evaluation, field: "grade")}</b>
                             </div>
-                            ${fieldValue(bean: evaluation.user, field: "username")} :
+                            ${fieldValue(bean: applicationContext.springSecurityService.getCurrentUser(), field: "username")} :
                             ${fieldValue(bean: evaluation, field: "comment")}<br/>
-                            <g:if test="${(evaluation.getUser()).equals(applicationContext.springSecurityService.getCurrentUser())}">
+                            <g:if test="${(evaluation.getUser().id).equals(applicationContext.springSecurityService.getCurrentUser().id)}">
                                 <g:form url="[resource:evaluation, action:'delete']" method="DELETE">
-                                <fieldset class="buttons">
-                                    <g:actionSubmit class="delete btn btn-danger glyphicon-trash" style="width: 150px; float: right; margin-right: 20px;"
-                                                    action="delete" value="${message(code: 'Effacer', default: 'Effacer')}"
-                                                    onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                                    <g:link class="edit btn btn-info" style="width: 150px; float: right; margin-right: 20px;" action="edit"   resource="${evaluation}">
-                                        <span class="glyphicon glyphicon-pencil" style="margin-right: 10px;" />      Editer</g:link>
-                                </fieldset>
-                            </g:form>
+                                    <fieldset class="buttons">
+                                        <g:actionSubmit class="delete btn btn-danger glyphicon-trash" style="width: 150px; float: right; margin-right: 20px;"
+                                                        action="delete" value="${message(code: 'Effacer', default: 'Effacer')}"
+                                                        onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                        <g:link class="edit btn btn-info" style="width: 150px; float: right; margin-right: 20px;" action="edit"   resource="${evaluation}">
+                                            <span class="glyphicon glyphicon-pencil" style="margin-right: 10px;" />      Editer</g:link>
+                                    </fieldset>
+                                </g:form>
                             </g:if>
                         </g:each>
 
                     </g:if>
                 </div>
 
-                <g:if test="${(!(setupInstance.getEvaluations()*.getUser()).contains(applicationContext.springSecurityService.getCurrentUser()) && applicationContext.springSecurityService.getCurrentUser()!=null)}">
+                <g:if test="${(!(setupInstance.getEvaluations()*.getUser().id).contains(applicationContext.springSecurityService.getCurrentUser().id) && applicationContext.springSecurityService.getCurrentUser()!=null)}">
                 <g:form action="save" controller="Evaluation" >
                     <div class="addEvaluation">
                         <input type="hidden" name="setup.id" value="${setupInstance.id}">
