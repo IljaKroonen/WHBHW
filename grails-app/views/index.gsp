@@ -121,7 +121,7 @@
 		</div>
 
 		<div id="page-body" role="main">
-			<h1>Bienvenu sur WHBHW</h1>
+			<h1>Bienvenue sur WHBHW</h1>
             <!--    <div id="controller-list" role="navigation">
 				<h2>Available Controllers:</h2>
 				<ul>
