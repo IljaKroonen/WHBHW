@@ -1,6 +1,5 @@
 package whbhw
 
-import grails.test.mixin.TestFor
 import spock.lang.Specification
 
 /**
@@ -12,9 +11,6 @@ class SetupServiceSpec extends Specification {
     def params
     def setup() {
          params = new HashMap()
-    }
-
-    def cleanup() {
     }
 
     void "test search list setup"() {

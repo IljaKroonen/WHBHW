@@ -1,18 +1,13 @@
 package whbhw
 
 
-import spock.lang.*
+import spock.lang.Specification
 
 /**
  *
  */
 class UserUniqueSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
 
     void "test unicité"() {
         given: "Un user nommé Pseudo"
