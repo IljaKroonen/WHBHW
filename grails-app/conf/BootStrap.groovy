@@ -81,6 +81,18 @@ class BootStrap {
         testSetup.addToComponents(ramComponent2)
 
         testSetup.save(flush: true)
+
+        def testSetup2 = new Setup(user: testUser, name: "PC test",description: "Ordinateur orienté test")
+        testSetup2.addToComponents(carteMereComponent)
+        testSetup2.addToComponents(carteGraphiqueComponent)
+        testSetup2.addToComponents(processeurComponent)
+        testSetup2.addToComponents(ventilateurComponent)
+        testSetup2.addToComponents(disqueDurComponent)
+        testSetup2.addToComponents(boitierComponent)
+        testSetup2.addToComponents(alimentationComponent)
+        testSetup2.addToComponents(ramComponent)
+
+        testSetup.save(flush: true)
     }
     def destroy = {
     }

@@ -13,7 +13,28 @@ class SetupController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Setup.list(params), model: [setupInstanceCount: Setup.count()]
+        /*
+        def setupList = Setup.createCriteria().list(params){
+            if (params.query && params.checkBoxSetup == "on") {
+                ilike("name", "%${params.query}%")
+            }
+            if (params.query && params.checkBoxPseudo == "on") {
+
+                user{
+                    ilike("name", "%${params.query}%")
+                }
+
+            }
+            if (params.query && params.checkBoxComponent == "on") {
+                components {
+                    ilike("name", "%${params.query}%")
+                }
+            }
+
+        }
+        */
+        def setupList = SetupService.searchList(params)
+        respond setupList, model: [setupInstanceCount: Setup.count()]
     }
 
     def show(Setup setupInstance) {
