@@ -1,7 +1,10 @@
 package whbhw
 
+import grails.transaction.Transactional
 
+@Transactional
 class SetupService {
+
     public static List<Setup> searchList(Map params){
         def setupList = Setup.createCriteria().list(params) {
             if (params.query && params.checkBoxSetup == "on") {
