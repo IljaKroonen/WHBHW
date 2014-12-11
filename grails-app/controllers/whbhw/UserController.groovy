@@ -51,13 +51,13 @@ class UserController {
         }
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
+    @Secured(['ROLE_ADMIN'])
     def edit(User userInstance) {
         respond userInstance
     }
 
     @Transactional
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
+    @Secured(['ROLE_ADMIN'])
     def update(User userInstance) {
         if (userInstance == null) {
             notFound()
@@ -81,7 +81,7 @@ class UserController {
     }
 
     @Transactional
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
+    @Secured(['ROLE_ADMIN'])
     def delete(User userInstance) {
 
         if (userInstance == null) {

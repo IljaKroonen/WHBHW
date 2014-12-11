@@ -1,10 +1,10 @@
 package whbhw
 
 class Evaluation {
-    User user
-    Setup setup
     int grade
     String comment
+
+    static belongsTo = [user: User , setup:Setup]
 
     static mapping = {
         user lazy: false

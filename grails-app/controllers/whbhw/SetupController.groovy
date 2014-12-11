@@ -154,6 +154,11 @@ class SetupController {
             return
         }
 
+        if (springSecurityService.getCurrentUser() != setupInstance.user) {
+            respond 'Only the owner of a setup can modify it'
+            return
+        }
+
         setupInstance.delete flush: true
 
         request.withFormat {
