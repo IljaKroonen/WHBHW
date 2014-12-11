@@ -1,6 +1,6 @@
 package whbhw
 
-
+import grails.plugin.springsecurity.annotation.Secured
 
 import static org.springframework.http.HttpStatus.NOT_FOUND
 import grails.transaction.Transactional
@@ -11,6 +11,8 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def springSecurityService
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
@@ -20,11 +22,13 @@ class UserController {
         respond userInstance
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {
         respond new User(params)
     }
 
     @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def save(User userInstance) {
         if (userInstance == null) {
             notFound()
@@ -49,11 +53,13 @@ class UserController {
         }
     }
 
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def edit(User userInstance) {
         respond userInstance
     }
 
     @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def update(User userInstance) {
         if (userInstance == null) {
             notFound()
@@ -77,6 +83,7 @@ class UserController {
     }
 
     @Transactional
+    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def delete(User userInstance) {
 
         if (userInstance == null) {
