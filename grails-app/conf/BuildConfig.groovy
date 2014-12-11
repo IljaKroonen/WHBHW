@@ -89,3 +89,9 @@ grails.project.dependency.resolution = {
     }
 
 }
+
+coverage {
+    exclusions = ['**/grails-app/conf/**','**/*any.other.package*','**/*LoginController*', '**/*LogoutController*']
+    xml = true
+    enabledByDefault = false
+}
