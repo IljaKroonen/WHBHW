@@ -110,7 +110,7 @@
                 <li><g:link controller="setup">Voir toutes les configurations</g:link></li>
                 <li><g:link controller="component">Voir les composants</g:link></li>
                 <sec:ifNotLoggedIn>
-                    <li><g:link uri="/login/auth/">S'indentifier</g:link></li>
+                    <li><g:link uri="/login/auth/">S'identifier</g:link></li>
                     <li><g:link uri="/user/create/">S'inscrire</g:link></li>
                 </sec:ifNotLoggedIn>
                 <sec:ifLoggedIn>
