@@ -18,15 +18,7 @@ class Setup {
 
     @Override
     public String toString() {
-        return "Setup{" +
-                "id=" + id +
-                ", user=" + user +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", version=" + version +
-                ", components=" + components +
-                ", evaluations=" + evaluations +
-                '}';
+        return name;
     }
 
 }
