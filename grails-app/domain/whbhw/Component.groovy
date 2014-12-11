@@ -21,29 +21,4 @@ class Component {
                 ", version=" + version +
                 '}';
     }
-
-    boolean equals(o) {
-        if (this.is(o)) return true
-        if (getClass() != o.class) return false
-
-        Component component = (Component) o
-
-        if (description != component.description) return false
-        if (id != component.id) return false
-        if (name != component.name) return false
-        if (type != component.type) return false
-        if (version != component.version) return false
-
-        return true
-    }
-
-    int hashCode() {
-        int result
-        result = (name != null ? name.hashCode() : 0)
-        result = 31 * result + (description != null ? description.hashCode() : 0)
-        result = 31 * result + (type != null ? type.hashCode() : 0)
-        result = 31 * result + (id != null ? id.hashCode() : 0)
-        result = 31 * result + (version != null ? version.hashCode() : 0)
-        return result
-    }
 }

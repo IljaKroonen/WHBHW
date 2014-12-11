@@ -57,5 +57,4 @@ class ComponentSpec extends Specification {
                 ", version=" + component.version +
                 '}')
     }
-
 }

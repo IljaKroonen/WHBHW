@@ -7,22 +7,6 @@ class UserRole implements Serializable {
     User secAppUser
     Role secAppRole
 
-    boolean equals(other) {
-        if (!(other instanceof UserRole)) {
-            return false
-        }
-
-        other.secAppUser?.id == secAppUser?.id &&
-                other.secAppRole?.id == secAppRole?.id
-    }
-
-    int hashCode() {
-        def builder = new HashCodeBuilder()
-        if (User) builder.append(User.id)
-        if (Role) builder.append(Role.id)
-        builder.toHashCode()
-    }
-
     static UserRole get(long secAppUserId, long secAppRoleId) {
         find 'from UserRole where secAppUser.id=:secAppUserId and secAppRole.id=:secAppRoleId',
                 [secAppUserId: secAppUserId, secAppRoleId: secAppRoleId]
