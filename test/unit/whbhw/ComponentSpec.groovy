@@ -37,4 +37,25 @@ class ComponentSpec extends Specification {
 
 
     }
+
+    void "test toString()"(){
+        given: "Un composant"
+        component.name = "nom"
+        component.description = "desc"
+        component.type = Type.ALIMENTATION
+        component.version = 1
+
+        when: "toString()"
+        def string = component.toString()
+
+        then: "retour du string"
+        string.equals("Component{" +
+                "id=" + component.id +
+                ", name='" + component.name + '\'' +
+                ", description='" + component.description + '\'' +
+                ", type=" + component.type +
+                ", version=" + component.version +
+                '}')
+    }
+
 }

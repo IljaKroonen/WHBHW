@@ -64,4 +64,21 @@ class UserRoleSpec extends Specification {
         !b
     }
 
+    void "test toString()"(){
+        given: "Un userRole"
+        UserRole userRole = new UserRole()
+
+        when: "toString()"
+        def string = userRole.toString()
+
+        then: "retour du string"
+        string.equals("UserRole{" +
+                    "id=" + userRole.id +
+                    ", secAppUser=" + userRole.secAppUser +
+                    ", secAppRole=" + userRole.secAppRole +
+                    ", version=" + userRole.version +
+                    '}');
+
+    }
+
 }

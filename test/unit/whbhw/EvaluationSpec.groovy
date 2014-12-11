@@ -48,4 +48,28 @@ class EvaluationSpec extends Specification {
         Mock(User) | 5      | null        | "Super config beau boulot"
         null       | 5      | Mock(Setup) | "Super config beau boulot"
     }
+
+    void "test toString()"(){
+        given: "Une evaluation"
+        Evaluation evaluation = new Evaluation()
+        evaluation.user = Mock(User)
+        evaluation.setup = Mock(Setup)
+        evaluation.grade = 2
+        evaluation.comment = "comment"
+        evaluation.version = 1
+
+        when: "toString()"
+        def string = evaluation.toString()
+
+        then: "retour du string"
+        string.equals("Evaluation{" +
+                "id=" + evaluation.id +
+                ", user=" + evaluation.user +
+                ", setup=" + evaluation.setup +
+                ", grade=" + evaluation.grade +
+                ", comment='" + evaluation.comment + '\'' +
+                ", version=" + evaluation.version +
+                '}');
+
+    }
 }

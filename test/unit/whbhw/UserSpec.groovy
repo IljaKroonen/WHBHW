@@ -64,4 +64,32 @@ class UserSpec extends Specification {
         "username4"          | "password9876543210" | "email4@test.fr"
         */
     }
+
+
+    void "test toString()"(){
+        given: "Un user"
+        User user = new User()
+        user.username = "nom"
+        user.password = "password"
+        user.email = "email@email.com"
+        user.version = 1
+
+        when: "toString()"
+        def string = user.toString()
+
+        then: "retour du string"
+        string.equals("User{" +
+                "id=" + user.id +
+                ", springSecurityService=" + user.springSecurityService +
+                ", username='" + user.username + '\'' +
+                ", password='" + user.password + '\'' +
+                ", email='" + user.email + '\'' +
+                ", enabled=" + user.enabled +
+                ", accountExpired=" + user.accountExpired +
+                ", accountLocked=" + user.accountLocked +
+                ", passwordExpired=" + user.passwordExpired +
+                ", version=" + user.version +
+                ", setup=" + user.setup +
+                '}');
+    }
 }

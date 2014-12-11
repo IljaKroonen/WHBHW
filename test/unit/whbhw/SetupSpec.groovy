@@ -52,4 +52,28 @@ class SetupSpec extends Specification {
         "g"        | "Super config trop bien" | [Mock(Component)] | Mock(User)
         ""         | "Super config trop bien" | [Mock(Component)] | Mock(User)
     }
+
+
+    void "test toString()"(){
+        given: "Une Setup"
+        Setup setup = new Setup()
+        setup.user = Mock(User)
+        setup.name = "nom"
+        setup.description = "desc"
+        setup.version = 1
+
+        when: "toString()"
+        def string = setup.toString()
+
+        then: "retour du string"
+        string.equals("Setup{" +
+                "id=" + setup.id +
+                ", user=" + setup.user +
+                ", name='" + setup.name + '\'' +
+                ", description='" + setup.description + '\'' +
+                ", version=" + setup.version +
+                ", components=" + setup.components +
+                ", evaluations=" + setup.evaluations +
+                '}');
+    }
 }
