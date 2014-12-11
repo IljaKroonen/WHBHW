@@ -89,8 +89,7 @@
                         <input type="hidden" name="setup.id" value="${setupInstance.id}">
                         <input type="hidden" name="user.id" value="${applicationContext.springSecurityService.getCurrentUser().id}">
                         <input id="comment" name="comment" maxlength="1600" type="text" class="form-control" id="texte" placeholder="">
-                        <g:select name="grade" from="${1..5}" value="${grade}"
-                                  noSelection="['':'Grade']"/>
+                        <g:select name="grade" from="${1..5}" value="${grade}"/>
                         <g:submitButton type="submit" name="save" class="save" value="Add Evaluation"/> <br/>
                     </div>
                 </g:form>
