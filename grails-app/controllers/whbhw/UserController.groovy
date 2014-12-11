@@ -22,13 +22,11 @@ class UserController {
         respond userInstance
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {
         respond new User(params)
     }
 
     @Transactional
-    @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def save(User userInstance) {
         if (userInstance == null) {
             notFound()
