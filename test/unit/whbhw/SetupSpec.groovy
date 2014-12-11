@@ -66,14 +66,6 @@ class SetupSpec extends Specification {
         def string = setup.toString()
 
         then: "retour du string"
-        string.equals("Setup{" +
-                "id=" + setup.id +
-                ", user=" + setup.user +
-                ", name='" + setup.name + '\'' +
-                ", description='" + setup.description + '\'' +
-                ", version=" + setup.version +
-                ", components=" + setup.components +
-                ", evaluations=" + setup.evaluations +
-                '}');
+        string.equals(setup.name)
     }
 }
