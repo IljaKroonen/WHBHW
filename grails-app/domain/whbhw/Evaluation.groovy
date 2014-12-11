@@ -6,6 +6,11 @@ class Evaluation {
     int grade
     String comment
 
+    static mapping = {
+        user lazy: false
+        setup lazy: false
+    }
+
     static constraints = {
         user nullable: false
         grade nullable: false, range: 1..5

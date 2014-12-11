@@ -7,6 +7,13 @@ class UserRole implements Serializable {
     User secAppUser
     Role secAppRole
 
+    static mapping = {
+        secAppUser lazy : false
+        secAppRole lazy : false
+        id composite: ['secAppRole', 'secAppUser']
+        version false
+    }
+
     boolean equals(other) {
         if (!(other instanceof UserRole)) {
             return false
@@ -49,12 +56,6 @@ class UserRole implements Serializable {
     static void removeAll(Role secAppRole) {
         executeUpdate 'DELETE FROM UserRole WHERE secAppRole=:secAppRole', [secAppRole: secAppRole]
     }
-
-    static mapping = {
-        id composite: ['secAppRole', 'secAppUser']
-        version false
-    }
-
 
     @Override
     public String toString() {
