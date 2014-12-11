@@ -84,7 +84,7 @@
                     </g:if>
                 </div>
 
-                <g:if test="${(!(setupInstance.getEvaluations()*.getUser().id).contains(applicationContext.springSecurityService.getCurrentUser().id) && applicationContext.springSecurityService.getCurrentUser()!=null)}">
+                <g:if test="${(!(setupInstance.getEvaluations()*.getUser().id).contains(applicationContext.springSecurityService.getCurrentUser()?.id) && applicationContext.springSecurityService.getCurrentUser()!=null)}">
                 <g:form action="save" controller="Evaluation" >
                     <div class="addEvaluation">
                         <input type="hidden" name="setup.id" value="${setupInstance.id}">
