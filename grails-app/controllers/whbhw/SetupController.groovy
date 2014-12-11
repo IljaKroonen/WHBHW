@@ -3,6 +3,7 @@ package whbhw
 import grails.transaction.Transactional
 
 import org.springframework.security.access.annotation.Secured
+import static org.springframework.http.HttpStatus.NOT_FOUND
 
 @Transactional(readOnly = true)
 class SetupController {

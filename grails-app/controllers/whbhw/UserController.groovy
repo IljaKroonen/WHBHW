@@ -3,6 +3,8 @@ package whbhw
 
 
 import grails.transaction.Transactional
+import static org.springframework.http.HttpStatus.NOT_FOUND
+
 
 @Transactional(readOnly = true)
 class UserController {
