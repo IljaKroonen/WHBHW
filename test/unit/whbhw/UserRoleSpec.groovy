@@ -11,11 +11,6 @@ import spock.lang.Specification
 @TestMixin(GrailsUnitTestMixin)
 class UserRoleSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
 
     void "create"() {
         given: "create from scratch"

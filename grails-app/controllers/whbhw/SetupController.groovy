@@ -3,7 +3,6 @@ package whbhw
 import grails.transaction.Transactional
 
 import org.springframework.security.access.annotation.Secured
-import static org.springframework.http.HttpStatus.*
 
 @Transactional(readOnly = true)
 class SetupController {

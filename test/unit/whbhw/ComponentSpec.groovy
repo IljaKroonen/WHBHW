@@ -15,9 +15,6 @@ class ComponentSpec extends Specification {
         component = new Component();
     }
 
-    def cleanup() {
-    }
-
     @Unroll
     void "test sur les contraintes d'un composant valide"() {
         given: "un composant"
